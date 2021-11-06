@@ -2,6 +2,7 @@
 	controllerName="lab2dev.browseorders.controller.App"
 	displayBlock="true"
 	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:f="sap.f">
 

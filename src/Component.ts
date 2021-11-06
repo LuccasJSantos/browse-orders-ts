@@ -1,4 +1,5 @@
 import UIComponent from 'sap/ui/core/UIComponent'
+import Control from 'sap/ui/core/Control'
 import { support } from 'sap/ui/Device'
 
 import ModelIndex from './model/index'
@@ -7,6 +8,10 @@ import ModelIndex from './model/index'
  * @namespace lab2dev.browseorders
  */
 export default class Component extends UIComponent {
+  constructor() {
+    super()
+  }
+
   public static metadata = {
     manifest: 'json',
   }
@@ -45,5 +50,9 @@ export default class Component extends UIComponent {
       }
     }
     return this.contentDensityClass
+  }
+
+  public getRootControl(): Control {
+    return super.getRootControl()
   }
 }

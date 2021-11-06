@@ -63,8 +63,8 @@
 							liveChange=".searchOnList"
 							value="{ViewConfig>/searchQuery}" />
 						<ToolbarSpacer />
-						<Button icon="sap-icon://filter" />
-						<Button icon="sap-icon://group-2" />
+						<Button icon="sap-icon://filter" press=".onOpenParameters('filter')" />
+						<Button icon="sap-icon://group-2" press=".onOpenParameters('group')" />
 					</OverflowToolbar>
 				</headerToolbar>
 			</List>

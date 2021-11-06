@@ -1,10 +1,10 @@
 import JSONListBinding from 'sap/ui/model/json/JSONListBinding'
 import Filter from 'sap/ui/model/Filter'
 import FilterOperator from 'sap/ui/model/FilterOperator'
-import FilterType from 'sap/ui/model/FilterType'
 import Event from 'sap/ui/base/Event'
 import Base from './Base.controller'
 import ModelIndex from '../model/index'
+import ViewSettingsDialog from 'sap/m/ViewSettingsDialog'
 import { read } from '../util/connector'
 import formatter from '../util/formatter'
 import { IOrder, IViewConfig } from '../types'
@@ -58,5 +58,16 @@ export default class ProductsController extends Base {
 
       listBinding.filter(filter)
     }
+  }
+
+  onOpenParameters(page: 'filter' | 'group' | 'sort'): void {
+    this.loadFragment<ViewSettingsDialog>(
+      'lab2dev.browseorders.fragment.OrdersParameters'
+    )
+      .then((dialog) => {
+        this.getView().addDependent(dialog)
+        dialog.open(page)
+      })
+      .catch(console.error)
   }
 }

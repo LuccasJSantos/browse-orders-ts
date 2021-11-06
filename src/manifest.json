@@ -1,65 +1,95 @@
 {
-	"_version": "1.12.0",
+  "_version": "1.12.0",
 
-	"sap.app": {
-		"id": "lab2dev.browseorders",
-		"type": "application",
-		"i18n": "i18n/i18n.properties",
-		"title": "{{app_title}}",
-		"description": "{{app_description}}",
-		"applicationVersion": {
-			"version": "1.0.0"
-		}
-	},
+  "sap.app": {
+    "id": "lab2dev.browseorders",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{app_title}}",
+    "description": "{{app_description}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
+  },
 
-	"sap.ui": {
-		"technology": "UI5",
-		"icons": {
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {},
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
 
-		},
-		"deviceTypes": {
-			"desktop": true,
-			"tablet": true,
-			"phone": true
-		}
-	},
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "lab2dev.browseorders.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
 
-	"sap.ui5": {
-		"rootView": {
-			"viewName": "lab2dev.browseorders.view.App",
-			"type": "XML",
-			"async": true,
-			"id": "app"
-		},
+    "dependencies": {
+      "minUI5Version": "1.90.1",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.ui.layout": {},
+        "sap.ui.unified": {},
+        "sap.m": {}
+      }
+    },
 
-		"dependencies": {
-			"minUI5Version": "1.90.1",
-			"libs": {
-				"sap.ui.core": {},
-				"sap.ui.layout": {},
-				"sap.ui.unified": {},
-				"sap.m": {}
-			}
-		},
+    "handleValidation": true,
 
-		"handleValidation": true,
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
 
-		"contentDensities": {
-			"compact": true,
-			"cozy": true
-		},
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "lab2dev.browseorders.i18n.i18n"
+        }
+      }
+    },
 
-		"models": {
-			"i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"settings": {
-					"bundleName": "lab2dev.browseorders.i18n.i18n"
-				}
-			}
-		},
-
-		"routing": {
-			
-		}
-	}
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "viewType": "XML",
+        "viewPath": "lab2dev.browseorders.view",
+        "controlId": "fcl",
+        "transition": "slide",
+        "bypassed": {},
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "master",
+          "target": ["master"]
+        },
+        {
+          "pattern": "detail/{product}",
+          "name": "detail",
+          "target": ["master", "detail"]
+        }
+      ],
+      "targets": {
+        "master": {
+          "viewId": "products",
+          "viewName": "Products",
+          "controlAggregation": "beginColumnPages"
+        },
+        "detail": {
+          "viewId": "productDetail",
+          "viewName": "ProductDetail",
+          "controlAggregation": "midColumnPages"
+        }
+      }
+    }
+  }
 }

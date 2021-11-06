@@ -36,12 +36,16 @@
   },
   "ui5": {
     "dependencies": [
-      "ui5-middleware-livereload"
+      "ui5-middleware-livereload",
+      "@sap/ux-ui5-tooling"
     ]
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@sap/ux-ui5-tooling": "^1.4.0"
   }
 }

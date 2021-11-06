@@ -1,0 +1,72 @@
+<mvc:View
+	controllerName="lab2dev.browseorders.controller.Products"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+	xmlns:f.semantic="sap.f.semantic">
+	<f.semantic:SemanticPage>
+		<f.semantic:titleHeading>
+			<Title text="{
+				parts: [
+					'i18n>title_count',
+					'ViewConfig>/ordersCount'
+				],
+				formatter: '.getText'
+			}" />
+		</f.semantic:titleHeading>
+		<f.semantic:content>
+			<List
+				items="{Orders>/}"
+				growing="true"
+				growingThreshold="20"
+				busy="{ViewConfig>/loadingOrders}"
+				busyIndicatorDelay="0"
+				showNoData="false"
+				mode="SingleSelectMaster">
+				<items>
+					<ObjectListItem
+						title="Order {Orders>OrderID}"
+						number="{
+							path: 'Orders>OrderDate',
+							type: 'sap.ui.model.type.Date',
+							formatOptions: { style: 'short' }
+						}">
+						<attributes>
+							<ObjectAttribute text="{Orders>Customer/CompanyName}" />
+							<ObjectAttribute text="{
+								path: 'Orders>ShippedDate',
+								type: 'sap.ui.model.type.Date',
+								formatOptions: { style: 'medium' }
+							}" />
+						</attributes>
+						<firstStatus>
+							<ObjectStatus
+								state="{
+									parts: ['Orders>RequiredDate', 'Orders>ShippedDate'],
+									formatter: '.formatter.shippingStatus'
+								}"
+								text="{
+									parts: ['Orders>RequiredDate', 'Orders>ShippedDate'],
+									formatter: '.formatter.shippingStatusText'
+								}"/>
+						</firstStatus>
+					</ObjectListItem>
+				</items>
+
+				<headerToolbar>
+					<OverflowToolbar>
+						<SearchField
+							placeholder="{i18n>search}"
+							showRefreshButton="true"
+							width="400px" />
+						<ToolbarSpacer />
+						<Button icon="sap-icon://filter" />
+						<Button icon="sap-icon://group-2" />
+					</OverflowToolbar>
+				</headerToolbar>
+			</List>
+		</f.semantic:content>
+	</f.semantic:SemanticPage>
+</mvc:View>
+

@@ -19,6 +19,8 @@ export default class AppController extends Controller {
       layout: f.LayoutType.OneColumn,
       loadingOrders: true,
       ordersCount: 0,
+      ordersFilters: [],
+      searchQuery: '',
     })
   }
 

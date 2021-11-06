@@ -16,6 +16,7 @@
 		</f.semantic:titleHeading>
 		<f.semantic:content>
 			<List
+				id="idOrdersList"
 				items="{Orders>/}"
 				growing="true"
 				growingThreshold="20"
@@ -58,7 +59,9 @@
 						<SearchField
 							placeholder="{i18n>search}"
 							showRefreshButton="true"
-							width="400px" />
+							width="400px"
+							liveChange=".searchOnList"
+							value="{ViewConfig>/searchQuery}" />
 						<ToolbarSpacer />
 						<Button icon="sap-icon://filter" />
 						<Button icon="sap-icon://group-2" />
@@ -68,4 +71,5 @@
 		</f.semantic:content>
 	</f.semantic:SemanticPage>
 </mvc:View>
+
 

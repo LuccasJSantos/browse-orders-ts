@@ -3,7 +3,6 @@
 	displayBlock="true"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:f="sap.f"
 	xmlns:f.semantic="sap.f.semantic">
 	<f.semantic:SemanticPage>
 		<f.semantic:titleHeading>

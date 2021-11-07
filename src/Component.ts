@@ -1,5 +1,6 @@
 import UIComponent from 'sap/ui/core/UIComponent'
 import Control from 'sap/ui/core/Control'
+import Router from 'sap/ui/core/routing/Router'
 import { support } from 'sap/ui/Device'
 
 import ModelIndex from './model/index'
@@ -54,5 +55,9 @@ export default class Component extends UIComponent {
 
   public getRootControl(): Control {
     return super.getRootControl()
+  }
+
+  public getRouter(): Router {
+    return super.getRouter()
   }
 }

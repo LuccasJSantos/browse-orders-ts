@@ -23,7 +23,8 @@
 				busy="{ViewConfig>/loadingOrders}"
 				busyIndicatorDelay="0"
 				showNoData="false"
-				mode="SingleSelectMaster">
+				mode="SingleSelectMaster"
+				select=".onProductSelect">
 				<items>
 					<ObjectListItem
 						title="Order {Orders>OrderID}"

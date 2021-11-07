@@ -73,7 +73,7 @@
           "target": ["master"]
         },
         {
-          "pattern": "detail/{product}",
+          "pattern": "detail/{orderPath}",
           "name": "detail",
           "target": ["master", "detail"]
         }

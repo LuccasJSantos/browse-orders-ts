@@ -16,7 +16,7 @@ export default class AppController extends Controller {
     )
 
     ModelIndex.setModel<IViewConfig>('ViewConfig', {
-      layout: f.LayoutType.OneColumn,
+      layout: f.LayoutType.TwoColumnsMidExpanded,
       loadingOrders: true,
       ordersCount: 0,
       ordersFilters: [],

@@ -1,0 +1,12 @@
+<mvc:XMLView
+	controllerName="lab2dev.browseorders.controller.ProductDetail"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f.semantic="sap.f.semantic"
+	xmlns:mvc="sap.ui.core.mvc">
+	<f.semantic:SemanticPage>
+		<f.semantic:content>
+		</f.semantic:content>
+	</f.semantic:SemanticPage>
+</mvc:XMLView>
+

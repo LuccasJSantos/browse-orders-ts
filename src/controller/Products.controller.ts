@@ -1,8 +1,11 @@
 import JSONListBinding from 'sap/ui/model/json/JSONListBinding'
 import Filter from 'sap/ui/model/Filter'
 import FilterOperator from 'sap/ui/model/FilterOperator'
+import Model from 'sap/ui/model/Model'
 import Event from 'sap/ui/base/Event'
+import ListItemBase from 'sap/m/ListItemBase'
 import Base from './Base.controller'
+import Component from '../Component'
 import ModelIndex from '../model/index'
 import ViewSettingsDialog from 'sap/m/ViewSettingsDialog'
 import { read } from '../util/connector'
@@ -69,5 +72,15 @@ export default class ProductsController extends Base {
         dialog.open(page)
       })
       .catch(console.error)
+  }
+
+  onProductSelect(event: Event): void {
+    const listItem = event.getParameter('listItem') as ListItemBase
+    const path = listItem.getBindingContext('Orders').getPath()
+
+    const component = this.getOwnerComponent() as Component
+    const router = component.getRouter()
+
+    router.navTo('detail', { orderPath: window.encodeURIComponent(path) })
   }
 }
